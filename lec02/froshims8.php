@@ -1,20 +1,17 @@
-<?php
-/***********************************************************************
- * froshims4.php
- *
- * David J. Malan
- * malan@harvard.edu
- *
- * Implements a registration form for Frosh IMs.  Submits to itself.
- **********************************************************************/
-// if form was actually submitted, check for error
-if (isset($_POST["action"]))
-{
-if (empty($_POST["name"]) || empty($_POST["gender"]) || empty($_POST["dorm"])) $error = true;
-}
+<?php 
+    /***********************************************************************
+     * froshims8.php
+     *
+     * David J. Malan
+     * malan@harvard.edu
+     *
+     * Implements a registration form for Frosh IMs.  Submits to 
+     * register8.php.
+     **********************************************************************/
 ?>
 
 <!DOCTYPE html>
+
 <html>
   <head>
     <title>Frosh IMs</title>
@@ -22,32 +19,25 @@ if (empty($_POST["name"]) || empty($_POST["gender"]) || empty($_POST["dorm"])) $
   <body>
     <div style="text-align: center">
       <h1>Register for Frosh IMs</h1>
-<?php if (isset($error)): ?>
-<div style="color: red">You must fill out the form!</div>
-<?php endif ?>
-<br><br>
-<form action="froshims4.php" method="post">
+      <br><br>
+      <form action="register8.php" method="post">
         <table style="border: 0; margin-left: auto; margin-right: auto; text-align: left">
           <tr>
             <td>Name:</td>
-            <td><input name="name" type="text" value="<?php if (isset($_POST["name"])) echo htmlspecialchars($_POST["name"]); ?>"></td>
+            <td><input name="name" type="text"></td>
           </tr>
           <tr>
             <td>Captain:</td>
-            <td>
-		<?php if (empty($_POST["captain"])): ?>
-			<input name="captain" type="checkbox"></td>
-		<?php else: ?>
-			<input checked name="captain" type="checkbox"></td>
-		<?php endif ?>
-</tr> <tr>
+            <td><input name="captain" type="checkbox"></td>
+          </tr>
+          <tr>
             <td>Gender:</td>
             <td>
               <input name="gender" type="radio" value="F"> F
               <input name="gender" type="radio" value="M"> M
             </td>
-</tr>
-<tr>
+          </tr>
+          <tr>
             <td>Dorm:</td>
             <td>
               <select name="dorm">
@@ -73,8 +63,9 @@ if (empty($_POST["name"]) || empty($_POST["gender"]) || empty($_POST["dorm"])) $
           </tr>
         </table>
         <br><br>
-        <input name="action" type="submit" value="Register!">
+        <input type="submit" value="Register!">
       </form>
     </div>
   </body>
 </html>
+

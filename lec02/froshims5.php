@@ -1,11 +1,12 @@
 <?php
 /***********************************************************************
- * froshims4.php
+ * froshims5.php
  *
  * David J. Malan
  * malan@harvard.edu
  *
  * Implements a registration form for Frosh IMs.  Submits to itself.
+ * Pre-populates name field upon error.
  **********************************************************************/
 // if form was actually submitted, check for error
 if (isset($_POST["action"]))
@@ -13,7 +14,6 @@ if (isset($_POST["action"]))
 if (empty($_POST["name"]) || empty($_POST["gender"]) || empty($_POST["dorm"])) $error = true;
 }
 ?>
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -26,28 +26,21 @@ if (empty($_POST["name"]) || empty($_POST["gender"]) || empty($_POST["dorm"])) $
 <div style="color: red">You must fill out the form!</div>
 <?php endif ?>
 <br><br>
-<form action="froshims4.php" method="post">
+<form action="froshims5.php" method="post">
         <table style="border: 0; margin-left: auto; margin-right: auto; text-align: left">
           <tr>
             <td>Name:</td>
-            <td><input name="name" type="text" value="<?php if (isset($_POST["name"])) echo htmlspecialchars($_POST["name"]); ?>"></td>
-          </tr>
+<td><input name="name" type="text" value="<?php if (isset($_POST["name"])) echo htmlspecialchars($_POST["name"]) ?>"></td> </tr>
           <tr>
             <td>Captain:</td>
-            <td>
-		<?php if (empty($_POST["captain"])): ?>
-			<input name="captain" type="checkbox"></td>
-		<?php else: ?>
-			<input checked name="captain" type="checkbox"></td>
-		<?php endif ?>
+            <td><input name="captain" type="checkbox"></td>
 </tr> <tr>
             <td>Gender:</td>
             <td>
               <input name="gender" type="radio" value="F"> F
               <input name="gender" type="radio" value="M"> M
             </td>
-</tr>
-<tr>
+</tr> <tr>
             <td>Dorm:</td>
             <td>
               <select name="dorm">
