@@ -1,4 +1,4 @@
-<?
+<?php
     /**
      * login1.php
      *
@@ -41,7 +41,7 @@
     <title>Log In</title>
   </head>
   <body>
-    <? if (count($_POST) > 0) echo "INVALID LOGIN"; ?>
+    <?php if (count($_POST) > 0) echo "INVALID LOGIN"; ?>
     <form action="<?= $_SERVER["PHP_SELF"] ?>" method="post">
       <table>
         <tr>
